@@ -8,6 +8,7 @@ const shopify = new ShopifyClient({
 });
 
 test('Get shop data', async () => {
-  const shopData = await shopify.shop.getShop();
-  expect(shopData.name).toBe('Eufonia');
+  const { name } = await shopify.shop.getShop();
+  const expectedName = process.env['STORE_NAME'];
+  expect(name).toBe(expectedName);
 });
