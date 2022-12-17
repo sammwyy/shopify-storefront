@@ -1,6 +1,9 @@
 import { GraphQLClient } from '../../graphql';
 import { IProduct } from './interfaces/IProduct';
-import queryProduct from './queries/queryProducts';
+import { normalizeProduct, normalizeProductList } from './products-utils';
+
+import queryProduct from './queries/queryProduct';
+import queryProducts from './queries/queryProducts';
 
 interface IGetProductsProps {
   first?: number;
@@ -19,6 +22,11 @@ interface IGetProductsProps {
     | 'RELEVANCE';
 }
 
+interface IGetProductProps {
+  handle?: string;
+  id?: string;
+}
+
 class ProductsClient {
   private readonly graphql: GraphQLClient;
 
@@ -26,20 +34,18 @@ class ProductsClient {
     this.graphql = graphql;
   }
 
-  public async getProducts(props: IGetProductsProps) {
-    let { nodes } = (await this.graphql.fetch(queryProduct, {
+  public async getProduct(props: IGetProductProps): Promise<IProduct> {
+    let product = (await this.graphql.fetch(queryProduct, {
+      ...props,
+    })) as unknown as IProduct;
+    return normalizeProduct(product);
+  }
+
+  public async getProducts(props: IGetProductsProps): Promise<IProduct[]> {
+    let { nodes } = (await this.graphql.fetch(queryProducts, {
       ...props,
     })) as Record<string, any>;
-
-    const products = nodes.map((product: any) => {
-      return {
-        ...product,
-        variants: product.variants.nodes,
-        images: product.images.nodes,
-      };
-    });
-
-    return products as IProduct[];
+    return normalizeProductList(nodes as IProduct[]);
   }
 }
 
