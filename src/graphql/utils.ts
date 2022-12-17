@@ -10,7 +10,7 @@ export function gqlVariablesToBody(
   // eslint-disable-next-line guard-for-in
   for (const key in vars) {
     const type = vars[key];
-    varTypes.push(`$${key}: ${type}!`);
+    varTypes.push(`$${key}: ${type}`);
     varAssign.push(`${key}: $${key}`);
   }
 
