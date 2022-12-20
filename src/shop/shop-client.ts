@@ -2,7 +2,7 @@ import { GraphQLClient } from 'astraql';
 import { IShop } from './interfaces/IShop';
 import queryShop from './queries/queryShop';
 
-class ShopClient {
+export class ShopClient {
   private readonly graphql: GraphQLClient;
 
   constructor(graphql: GraphQLClient) {
