@@ -9,3 +9,6 @@ coverage
 
 # don't lint config files
 jest.config.js
+
+# don't lint tests
+tests/
