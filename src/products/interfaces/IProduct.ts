@@ -1,6 +1,6 @@
 import IProductImage from './IProductImage';
-import IProductSEO from './IProductSeo';
-import { IProductVariant } from './IProductVariant';
+import IProductSEO from './IProductSEO';
+import IProductVariant from './IProductVariant';
 
 export interface IProduct {
   id: string;

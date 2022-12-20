@@ -1,5 +1,5 @@
+import IMoneyV2 from '../../common/IMoneyV2';
 import IProductImage from './IProductImage';
-import IProductPrice from './IProductPrice';
 import IProductVariantOption from './IProductVariantOption';
 
 export interface IProductVariant {
@@ -9,10 +9,12 @@ export interface IProductVariant {
   currentlyNotInStock: boolean;
   sku: string;
   title: string;
-  unitPrice: IProductPrice;
+  unitPrice: IMoneyV2;
   weight: number;
   weightUnit: string;
   selectedOptions: IProductVariantOption[];
   image: IProductImage;
   quantityAvailable: boolean;
 }
+
+export default IProductVariant;

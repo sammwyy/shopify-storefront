@@ -1,4 +1,4 @@
-import { GraphQLClient } from '../../graphql';
+import { GraphQLClient } from 'astraql';
 import { IProduct } from './interfaces/IProduct';
 import { normalizeProduct, normalizeProductList } from './products-utils';
 
@@ -35,16 +35,12 @@ class ProductsClient {
   }
 
   public async getProduct(props: IGetProductProps): Promise<IProduct> {
-    let product = (await this.graphql.fetch(queryProduct, {
-      ...props,
-    })) as unknown as IProduct;
-    return normalizeProduct(product);
+    let product = await this.graphql.fetch(queryProduct, props);
+    return normalizeProduct(product as IProduct);
   }
 
   public async getProducts(props: IGetProductsProps): Promise<IProduct[]> {
-    let { nodes } = (await this.graphql.fetch(queryProducts, {
-      ...props,
-    })) as Record<string, any>;
+    let { nodes } = await this.graphql.fetch(queryProducts, props);
     return normalizeProductList(nodes as IProduct[]);
   }
 }

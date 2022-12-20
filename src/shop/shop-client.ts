@@ -1,4 +1,4 @@
-import { GraphQLClient } from '../../graphql';
+import { GraphQLClient } from 'astraql';
 import { IShop } from './interfaces/IShop';
 import queryShop from './queries/queryShop';
 
@@ -11,7 +11,7 @@ class ShopClient {
 
   public async getShop(): Promise<IShop> {
     const data = await this.graphql.fetch(queryShop);
-    return data as unknown as IShop;
+    return data as IShop;
   }
 }
 

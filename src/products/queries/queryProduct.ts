@@ -1,13 +1,8 @@
-import { buildQuery } from '../../../graphql';
+import { query } from 'astraql';
 
-const queryProduct = buildQuery(
-  'product',
-  {
-    handle: 'String',
-    id: 'ID',
-  },
-  [
-    `
+const queryProduct = query`
+  product($handle: String, $id: ID) {
+    product(handle: $handle, id: $id) {
       id
       handle
       createdAt
@@ -63,9 +58,9 @@ const queryProduct = buildQuery(
           }
           quantityAvailable
         }
-      }
-  `,
-  ],
-);
+      } 
+    }
+  }
+`;
 
 export default queryProduct;
