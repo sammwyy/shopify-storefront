@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { IProduct } from './interfaces/IProduct';
 
 export function normalizeProduct(product: IProduct) {

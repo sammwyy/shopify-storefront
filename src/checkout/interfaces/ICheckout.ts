@@ -21,7 +21,7 @@ export interface ICheckout {
   requiresShipping?: boolean;
   shippingAddress: IMailingAddress;
   subtotalPrice: IMoneyV2;
-  taxExempt: Boolean;
+  taxExempt: boolean;
   taxesIncluded: boolean;
   totalDuties: IMoneyV2;
   totalPrice: IMoneyV2;

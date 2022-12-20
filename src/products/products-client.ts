@@ -35,12 +35,12 @@ class ProductsClient {
   }
 
   public async getProduct(props: IGetProductProps): Promise<IProduct> {
-    let product = await this.graphql.fetch(queryProduct, props);
+    const product = await this.graphql.fetch(queryProduct, props);
     return normalizeProduct(product as IProduct);
   }
 
   public async getProducts(props: IGetProductsProps): Promise<IProduct[]> {
-    let { nodes } = await this.graphql.fetch(queryProducts, props);
+    const { nodes } = await this.graphql.fetch(queryProducts, props);
     return normalizeProductList(nodes as IProduct[]);
   }
 }
