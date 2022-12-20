@@ -3,7 +3,7 @@ import { ICheckout } from './interfaces/ICheckout';
 import ICreateCheckoutProps from './interfaces/ICheckoutCreateProps';
 import mutationCheckoutCreate from './mutations/mutationCheckoutCreate';
 
-class CheckoutClient {
+export class CheckoutClient {
   private readonly graphql: GraphQLClient;
 
   constructor(graphql: GraphQLClient) {
