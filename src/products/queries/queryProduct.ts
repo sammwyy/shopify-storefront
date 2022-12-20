@@ -39,8 +39,35 @@ const queryProduct = query`
       vendor
       variants(first: 100) {
         nodes {
-          id
           availableForSale
+          barcode
+          currentlyNotInStock
+          id
+          image {
+            altText
+            height
+            id
+            url
+            width
+          }
+          price {
+            amount
+            currencyCode
+          }
+          quantityAvailable
+          requiresShipping
+          selectedOptions {
+            name
+            value
+          }
+          sku
+          title
+          unitPrice {
+            amount
+            currencyCode
+          }
+          weight
+          weightUnit
         }
       }
     }

@@ -2,7 +2,7 @@
   "name": "shopify-storefront",
   "author": "sammwy",
   "description": "Wrapper for the Shopify's Storefront API.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "license": "MIT",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",

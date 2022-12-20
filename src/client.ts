@@ -1,4 +1,4 @@
-import { GraphQLClient } from 'astraql';
+import { CacheLoader, GraphQLClient } from 'astraql';
 
 import CheckoutClient from './checkout/checkout-client';
 import ProductsClient from './products/products-client';
@@ -7,6 +7,7 @@ import ShopClient from './shop/shop-client';
 interface ShopifyClientSettings {
   storeDomain: string;
   accessToken: string;
+  cache?: number;
 }
 
 export class ShopifyClient {
@@ -24,6 +25,9 @@ export class ShopifyClient {
       headers: {
         'X-Shopify-Storefront-Access-Token': accessToken,
       },
+      cache: settings.cache
+        ? new CacheLoader({ expiresIn: settings.cache })
+        : undefined,
     });
     this.checkout = new CheckoutClient(graphql);
     this.products = new ProductsClient(graphql);

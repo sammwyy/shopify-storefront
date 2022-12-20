@@ -10,6 +10,11 @@ And for each point, add semantics:
 
 For each keypoint, treat like commit messages, follow [Chris Beams' rules](https://chris.beams.io/posts/git-commit/)
 
+## [0.1.5] - 19/12/2022
+
+- feature: cache for queries.
+- fix: fix variant fields in product.
+
 ## [0.1.4] - 19/12/2022
 
 - fix: "selectedOption" field in type IProductVariant is an Array instead a single object.
