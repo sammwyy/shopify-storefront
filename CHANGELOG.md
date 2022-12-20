@@ -10,10 +10,22 @@ And for each point, add semantics:
 
 For each keypoint, treat like commit messages, follow [Chris Beams' rules](https://chris.beams.io/posts/git-commit/)
 
-## [Unreleased]
+## [0.1.4] - 19/12/2022
+
+- fix: "selectedOption" field in type IProductVariant is an Array instead a single object.
+
+## [0.1.3] - 19/12/2022
+
+- fix: upgraded product/s query.
+
+## [0.1.2] - 19/12/2022
+
+- fix: some minor fixes and refactoring.
+
+## [0.1.1] - 19/12/2022
+
+- added: changed graphql client.
 
 ## [0.1.0] - 13/12/2022
-
-### Added  
 
 - added: Project template.

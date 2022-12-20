@@ -11,7 +11,7 @@ export interface IProductVariant {
   price: IMoneyV2;
   quantityAvailable: number;
   requiresShipping: boolean;
-  selectedOptions: ISelectedOption;
+  selectedOptions: ISelectedOption[];
   sku: string;
   title: string;
   unitPrice: IMoneyV2;
