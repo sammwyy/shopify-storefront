@@ -2,7 +2,7 @@
 
 Wrapper for the Shopify's Storefront API.
 
-## Install
+## 💻 Getting started
 
 ```shell
 # With npm:
@@ -12,77 +12,56 @@ npm install shopify-storefront
 yarn add shopify-storefront
 ```
 
-## Usage
-
-This library has both flow and ts declarations
+## 📚 Usage
 
 ### As a ES Module
 
 ```javascript
-import __LIB__ from '__LIB__';
+import { ShopifyClient } from 'shopify-storefront';
 
-// for promise module and functions
-const { sleep } = __LIB__.promise;
+// Initialize client.
+const shopify = new ShopifyClient({
+  accessToken: process.env['SHOPIFY_ACCESS_TOKEN'] as string,
+  storeDomain: process.env['SHOPIFY_STORE_DOMAIN'] as string,
+});
 
-// If index module getting too big for the size you can import specific module
-import promise from '__LIB__/dist/promise';
-
+// Get shop data.
+shopify.shop.getShop()
+    .then(console.log);
 ```
 
 ### As CJS Module
 
 ```javascript
 // If uses require function you will need to use .default
-// For import in typescript or flow, this is not required
-
-const __LIB__ = require('__LIB__').default;
-const promise = require('__LIB__/dist/promise').default;
+// For import in typescript, this is not required
+const { ShopifyClient } = require('shopify-storefront').default;
 ```
 
-## To run development following will be recommended
+## 📝 To Do
 
-Use [VS Code](https://code.visualstudio.com/download) as IDE:
+- [] Checkout
+  - [x] createCheckout
+- [] Products
+  - [x] product
+  - [x] products
+- [] Shop
+  - [x] shop
 
-The library template is already setup with vscode settings for auto format.
+## 🤝 Contributing
 
-Ensure the following plugins are enabled:
+Contributions, issues and feature requests are welcome!
+Feel free to check [issues page](https://github.com/sammwyy/shopify-storefront/issues).
 
-- [ESlint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) (This is setup with airbnb linting convention)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Add JSDoc Comment](https://marketplace.visualstudio.com/items?itemName=stevencl.addDocComments#)
+## ❤️ Show your support
 
-Optional but Recommended:
+Give a ⭐️ if this project helped you!
 
-- [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost)
-- [Indenticator](https://marketplace.visualstudio.com/items?itemName=sirtori.indenticator)
-- [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=coenraads.bracket-pair-colorizer)
-- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+Or buy me a coffeelatte 🙌🏾
 
-### Rollup
+[Ko-fi](https://ko-fi.com/sammwy) | [Patreon](https://patreon.com/sammwy)
 
-TSDX uses [Rollup](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings.
+## 📝 License
 
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### GitHub Actions
-
-Two actions are added by default:
-
-- `main` which installs deps w/ cache, lints, tests, and builds on all pushes against a Node and OS matrix
-- `size` which comments cost comparison of your library on every pull request using [`size-limit`](https://github.com/ai/size-limit)
-
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
-
-## Module Formats
-
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
+Copyright © 2022 [Sammwy](https://github.com/sammwyy).  
+This project is [MIT](LICENSE) licensed.  
