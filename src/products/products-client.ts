@@ -5,7 +5,7 @@ import { normalizeProduct, normalizeProductList } from './products-utils';
 import queryProduct from './queries/queryProduct';
 import queryProducts from './queries/queryProducts';
 
-interface IGetProductsProps {
+export interface IGetProductsProps {
   first?: number;
   last?: number;
   query?: string;
@@ -22,12 +22,12 @@ interface IGetProductsProps {
     | 'RELEVANCE';
 }
 
-interface IGetProductProps {
+export interface IGetProductProps {
   handle?: string;
   id?: string;
 }
 
-class ProductsClient {
+export class ProductsClient {
   private readonly graphql: GraphQLClient;
 
   constructor(graphql: GraphQLClient) {
