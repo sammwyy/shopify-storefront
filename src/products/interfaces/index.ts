@@ -1,5 +1,5 @@
 export * from './IProduct';
-export * from './IProductImage';
+export * from './IProductOption';
 export * from './IProductSEO';
 export * from './IProductVariant';
-export * from './IProductVariantOption';
+export * from './ISelectedOption';

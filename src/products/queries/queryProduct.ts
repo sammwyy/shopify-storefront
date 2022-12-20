@@ -3,62 +3,46 @@ import { query } from 'astraql';
 const queryProduct = query`
   product($handle: String, $id: ID) {
     product(handle: $handle, id: $id) {
-      id
-      handle
-      createdAt
       availableForSale
+      createdAt
       description
       descriptionHtml
+      handle
+      id
       isGiftCard
-      images(first: 99) {
+      images(first: 100) {
         nodes {
-          width
-          url
-          src
-          id
-          height
           altText
+          height
+          id
+          url
+          width
         }
+      }
+      onlineStoreUrl
+      options {
+        id
+        name
+        values
       }
       productType
       publishedAt
+      requiresSellingPlan
       seo {
         description
         title
       }
       tags
       title
+      totalInventory
+      updatedAt
       vendor
-      variants(first: 99) {
+      variants(first: 100) {
         nodes {
           id
           availableForSale
-          barcode
-          currentlyNotInStock
-          sku
-          title
-          unitPrice {
-            amount
-            currencyCode
-          }
-          weight
-          weightUnit
-          selectedOptions {
-            name
-            value
-          }
-          image {
-            altText
-            height
-            id
-            originalSrc
-            src
-            width
-            url
-          }
-          quantityAvailable
         }
-      } 
+      }
     }
   }
 `;
